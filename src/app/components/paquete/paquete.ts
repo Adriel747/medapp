@@ -21,7 +21,7 @@ export class PaqueteComponent implements OnInit {
   }
 
   irHoteles():     void { this.router.navigate(['/hoteles']); }
-  irTransporte():  void { /* próxima pantalla */ }
+  irTransporte(): void { this.router.navigate(['/transportes']); }
   irInterprete():  void { /* próxima pantalla */ }
   finalizar():     void { this.router.navigate(['/home']); }
 }

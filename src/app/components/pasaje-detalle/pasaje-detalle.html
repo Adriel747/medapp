@@ -1,0 +1,106 @@
+<div class="pas-screen">
+
+  @if (transporte()) {
+
+    <div class="pas-hero">
+      <div class="pas-hero-text">
+        <button class="btn-back" (click)="goBack()">← Volver</button>
+        <h1>Hi {{ user()?.name }}</h1>
+        <p>ESCOGE LA MEJOR RUTA DE VIAJES DE TODA BOLIVIA</p>
+      </div>
+      <div class="pas-hero-img">
+        <img [src]="transporte()!.imagen" [alt]="transporte()!.nombre" />
+      </div>
+    </div>
+
+    <div class="pas-list">
+      <div class="pas-card">
+        <div class="pas-info">
+          <h3>{{ transporte()!.nombre }}</h3>
+          <p>{{ transporte()!.descripcion }}</p>
+          <button class="btn-ver">VER HOTELES</button>
+        </div>
+        <div class="pas-foto">
+          <img [src]="transporte()!.imagen" [alt]="transporte()!.nombre" />
+        </div>
+      </div>
+    </div>
+
+    <div class="tipo-section">
+      <div class="tipo-grid">
+        @for (p of transporte()!.pasajes; track p.id) {
+          <div
+            class="tipo-card"
+            [class.selected]="pasajeSeleccionado()?.id === p.id"
+            (click)="seleccionarPasaje(p)"
+          >
+            <div class="tipo-img">
+              <img [src]="p.imagen" [alt]="p.nombre" />
+            </div>
+            <span>{{ p.nombre }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    @if (pasajeSeleccionado()) {
+      <div class="cal-section">
+
+        <div class="pas-hero-mini">
+          <div class="pas-hero-text">
+            <h2>{{ pasajeSeleccionado()!.nombre }} pasaje<br>Individual</h2>
+          </div>
+          <div class="pas-hero-img small">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=200&q=80" alt="Pasaje" />
+          </div>
+        </div>
+
+        <div class="cal-actions-top">
+          <button class="btn-elegir" (click)="elegir()" [disabled]="!fechaViaje()">ELEGIR</button>
+          <button class="btn-saber">SABER MAS</button>
+        </div>
+
+        @if (fechaViaje()) {
+          <p class="cal-hint ok">
+            ✈️ {{ fechaViaje()!.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' }) }}
+          </p>
+        } @else {
+          <p class="cal-hint">Selecciona la fecha de tu viaje</p>
+        }
+
+        <div class="calendar-card">
+          <div class="cal-nav">
+            <button class="cal-btn" (click)="prevMonth()">‹</button>
+            <span class="cal-month">{{ monthLabel }}</span>
+            <button class="cal-btn" (click)="nextMonth()">›</button>
+          </div>
+
+          <div class="cal-days-header">
+            @for (d of DAYS; track d) { <span>{{ d }}</span> }
+          </div>
+
+          <div class="cal-grid">
+            @for (day of calendarDays(); track $index) {
+              <div
+                class="cal-day"
+                [class.selected]="isSelected(day)"
+                [class.past]="isPast(day)"
+                [class.empty]="!day"
+                (click)="selectDay(day)"
+              >{{ day ?? '' }}</div>
+            }
+          </div>
+
+          <div class="cal-footer">
+            <button class="cal-act" (click)="cancelar()">CANCEL</button>
+            <button class="cal-act primary" (click)="elegir()" [disabled]="!fechaViaje()">OK</button>
+          </div>
+        </div>
+
+      </div>
+    }
+
+  }
+
+  <app-bottom-nav />
+</div>

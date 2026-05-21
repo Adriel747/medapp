@@ -14,5 +14,7 @@ export const routes: Routes = [
   { path: 'hoteles',      canActivate: [authGuard], loadComponent: () => import('./components/hoteles/hoteles').then(m => m.HotelesComponent) },
   { path: 'hotel/:id',    canActivate: [authGuard], loadComponent: () => import('./components/hotel-detalle/hotel-detalle').then(m => m.HotelDetalleComponent) },
   { path: 'habitacion/:hotelId/:habId', canActivate: [authGuard], loadComponent: () => import('./components/habitacion-detalle/habitacion-detalle').then(m => m.HabitacionDetalleComponent) },
+  { path: 'transportes',    canActivate: [authGuard], loadComponent: () => import('./components/transportes/transportes').then(m => m.TransportesComponent) },
+  { path: 'transporte/:id', canActivate: [authGuard], loadComponent: () => import('./components/pasaje-detalle/pasaje-detalle').then(m => m.PasajeDetalleComponent) },
   { path: '**', redirectTo: 'login' }
 ];

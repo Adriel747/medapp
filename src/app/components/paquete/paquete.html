@@ -36,7 +36,15 @@
         <h3>TRANSPORTE</h3>
         <div class="check-row">
           <span class="checkbox checked">✓</span>
-          <div class="dashed-line"></div>
+          @if (paqState.transporte()) {
+            <span class="sel-text">
+          {{ paqState.transporte()!.pasajeNombre }} pasaje:
+              {{ paqState.transporte()!.transporteNombre }}
+              ({{ paqState.transporte()!.fechaViaje }})
+        </span>
+          } @else {
+            <div class="dashed-line"></div>
+          }
         </div>
         <button class="btn-ver" (click)="irTransporte()">VER OPCIONES</button>
       </div>
