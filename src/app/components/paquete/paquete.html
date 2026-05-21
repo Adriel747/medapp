@@ -1,0 +1,35 @@
+<div class="paq-screen">
+
+  <div class="paq-header">
+    <h1>{{ tratNombre }}</h1>
+    <p>Personaliza tu paquete de viaje</p>
+  </div>
+
+  <div class="paq-list">
+    @for (op of opciones(); track op.id) {
+      <div class="paq-card">
+        <div class="paq-info">
+          <h3>{{ op.titulo }}</h3>
+          <div class="check-row">
+            <span
+              class="checkbox"
+              [class.checked]="op.seleccionado"
+              (click)="toggle(op.id)"
+            >{{ op.seleccionado ? '✓' : '' }}</span>
+            <div class="dashed-line"></div>
+          </div>
+          <button class="btn-ver">{{ op.btnLabel }}</button>
+        </div>
+        <div class="paq-img">
+          <img [src]="op.imagen" [alt]="op.titulo" />
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="paq-footer">
+    <button class="btn-finalizar" (click)="finalizar()">FINALIZAR</button>
+  </div>
+
+  <app-bottom-nav />
+</div>

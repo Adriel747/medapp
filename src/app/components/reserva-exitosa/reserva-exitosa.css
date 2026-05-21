@@ -1,0 +1,153 @@
+.res-screen {
+  min-height: 100dvh;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  font-family: sans-serif;
+}
+
+.res-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 20px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.res-icon {
+  width: 64px;
+  height: 64px;
+  background: #1E2060;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.res-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #1E2060;
+  margin: 0 0 8px;
+}
+
+.res-sub {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 20px;
+}
+
+.doc-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F5F5FA;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.doc-mini-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doc-mini strong {
+  display: block;
+  font-size: 14px;
+  color: #1E2060;
+}
+
+.spec-tag {
+  font-size: 11px;
+  background: #E0E0FF;
+  color: #4040A0;
+  border-radius: 20px;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.booking-details {
+  text-align: left;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child { border-bottom: none; }
+
+.det-icon { font-size: 18px; }
+
+.detail-row small {
+  font-size: 11px;
+  color: #888;
+  display: block;
+}
+
+.detail-row p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E2060;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.booking-id {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F5F5FA;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.booking-id strong {
+  color: #1E2060;
+  font-size: 14px;
+}
+
+.btn-paquete {
+  width: 100%;
+  background: #1E2060;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btn-home {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.no-booking { color: #fff; text-align: center; }

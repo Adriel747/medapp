@@ -1,0 +1,35 @@
+<div class="esp-screen">
+
+  <div class="esp-header">
+    <button class="btn-back" (click)="goBack()">← Volver</button>
+    <h2>{{ tratNombre }}</h2>
+    <p>Elige tu especialista</p>
+  </div>
+
+  <div class="esp-list">
+    @for (esp of lista(); track esp.id) {
+      <div class="esp-card">
+        <div class="esp-main">
+          <div class="esp-info">
+            <h3>{{ esp.nombre }}</h3>
+            <span class="esp-spec">{{ esp.especialidad }}</span>
+            <p class="esp-desc">{{ esp.descripcion }}</p>
+          </div>
+          <div class="esp-img">
+            <img [src]="esp.imagen" [alt]="esp.nombre" />
+          </div>
+        </div>
+        <div class="esp-btns">
+          <button class="btn-elegir" (click)="elegir(esp)">ELEGIR</button>
+          <button class="btn-saber"  (click)="toggleSaber(esp.id)">SABER MÁS</button>
+        </div>
+      </div>
+    }
+
+    @if (lista().length === 0) {
+      <p class="no-esp">No hay especialistas disponibles para este tratamiento.</p>
+    }
+  </div>
+
+  <app-bottom-nav />
+</div>

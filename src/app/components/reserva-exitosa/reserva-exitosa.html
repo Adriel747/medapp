@@ -1,0 +1,61 @@
+<div class="res-screen">
+
+  @if (booking()) {
+    <div class="res-card">
+
+      <div class="res-icon">✓</div>
+      <h1 class="res-title">RESERVA EXITOSA</h1>
+      <p class="res-sub">Su cita médica ha sido confirmada satisfactoriamente.</p>
+
+      <div class="doc-mini">
+        <img [src]="booking()!.doctorImagen" [alt]="booking()!.doctorNombre" class="doc-mini-img" />
+        <div>
+          <strong>{{ booking()!.doctorNombre }}</strong>
+          <span class="spec-tag">{{ booking()!.doctorEspecialidad }}</span>
+        </div>
+      </div>
+
+      <div class="booking-details">
+        <div class="detail-row">
+          <span class="det-icon">📅</span>
+          <div>
+            <small>Fecha</small>
+            <p>{{ booking()!.fecha }}</p>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="det-icon">🕐</span>
+          <div>
+            <small>Hora</small>
+            <p>{{ booking()!.hora }}</p>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="det-icon">📍</span>
+          <div>
+            <small>Ubicación</small>
+            <p>{{ booking()!.clinicaNombre }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-id">
+        <span>ID de Reserva</span>
+        <strong>{{ booking()!.bookingId }}</strong>
+      </div>
+
+      <button class="btn-paquete" (click)="continuarPaquete()">
+        📦 Agregar Paquete de Viaje
+      </button>
+
+      <button class="btn-home" (click)="goHome()">Volver al inicio</button>
+
+    </div>
+  } @else {
+    <div class="no-booking">
+      <p>No se encontró información de la reserva.</p>
+      <button (click)="goHome()">Ir al inicio</button>
+    </div>
+  }
+
+</div>

@@ -1,0 +1,73 @@
+<div class="agen-screen">
+
+  <div class="agen-header">
+    <button class="btn-back" (click)="goBack()">← Volver</button>
+    <h2>{{ tratNombre }}</h2>
+  </div>
+
+  @if (especialista()) {
+
+    <div class="doctor-card">
+      <div class="doc-img">
+        <img [src]="especialista()!.imagen" [alt]="especialista()!.nombre" />
+      </div>
+      <div class="doc-info">
+        <span class="doc-tag">ESPECIALISTA</span>
+        <h3>{{ especialista()!.nombre }}</h3>
+        <p>{{ especialista()!.descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="section-label">Selecciona una fecha</div>
+
+    <div class="calendar-card">
+      <div class="cal-nav">
+        <button class="cal-btn" (click)="prevMonth()">‹</button>
+        <span class="cal-month">{{ monthLabel }}</span>
+        <button class="cal-btn" (click)="nextMonth()">›</button>
+      </div>
+
+      <div class="cal-days-header">
+        @for (d of DAYS; track d) {
+          <span>{{ d }}</span>
+        }
+      </div>
+
+      <div class="cal-grid">
+        @for (day of calendarDays(); track $index) {
+          <div
+            class="cal-day"
+            [class.selected]="isSelected(day)"
+            [class.today]="isToday(day)"
+            [class.past]="isPast(day)"
+            [class.empty]="!day"
+            (click)="selectDay(day)"
+          >{{ day ?? '' }}</div>
+        }
+      </div>
+    </div>
+
+    <div class="section-label">Selecciona un horario</div>
+
+    <div class="times-grid">
+      @for (t of TIMES; track t) {
+        <button
+          class="time-pill"
+          [class.active]="selectedTime() === t"
+          (click)="selectedTime.set(t)"
+        >{{ t }}</button>
+      }
+    </div>
+
+    <div class="agen-footer">
+      <button
+        class="btn-confirmar"
+        [disabled]="!selectedDate() || !selectedTime()"
+        (click)="confirmar()"
+      >CONFIRMAR CITA</button>
+    </div>
+
+  }
+
+  <app-bottom-nav />
+</div>

@@ -22,5 +22,25 @@ export const routes: Routes = [
     canActivate: [authGuard],
     loadComponent: () => import('./components/clinica-detalle/clinica-detalle').then(m => m.ClinicaDetalleComponent)
   },
+  {
+    path: 'especialistas/:clinicaId/:tratId',
+    canActivate: [authGuard],
+    loadComponent: () => import('./components/especialistas/especialistas').then(m => m.EspecialistasComponent)
+  },
+  {
+    path: 'agendar/:clinicaId/:tratId/:espId',
+    canActivate: [authGuard],
+    loadComponent: () => import('./components/agendar/agendar').then(m => m.AgendarComponent)
+  },
+  {
+    path: 'reserva-exitosa',
+    canActivate: [authGuard],
+    loadComponent: () => import('./components/reserva-exitosa/reserva-exitosa').then(m => m.ReservaExitosaComponent)
+  },
+  {
+    path: 'paquete',
+    canActivate: [authGuard],
+    loadComponent: () => import('./components/paquete/paquete').then(m => m.PaqueteComponent)
+  },
   { path: '**', redirectTo: 'login' }
 ];

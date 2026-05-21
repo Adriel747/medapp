@@ -16,11 +16,18 @@ export class ClinicaDetalleComponent implements OnInit {
   private router   = inject(Router);
   private clinicas = inject(ClinicasService);
 
-  clinica = signal<Clinica | undefined>(undefined);
+  clinicaId = '';
+  clinica   = signal<Clinica | undefined>(undefined);
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.clinica.set(this.clinicas.getById(id));
+    this.clinicaId = this.route.snapshot.paramMap.get('id') ?? '';
+    this.clinica.set(this.clinicas.getById(this.clinicaId));
+  }
+
+  verEspecialistas(tratId: string, tratNombre: string): void {
+    this.router.navigate(['/especialistas', this.clinicaId, tratId], {
+      queryParams: { nombre: tratNombre }
+    });
   }
 
   goBack(): void {
