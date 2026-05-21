@@ -1,0 +1,34 @@
+<div class="hdet-screen">
+
+  @if (hotel()) {
+
+    <div class="hdet-hero">
+      <div class="hdet-hero-text">
+        <button class="btn-back" (click)="goBack()">← Volver</button>
+        <h2>{{ hotel()!.nombre }}</h2>
+        <p>{{ hotel()!.descripcion }}</p>
+        <button class="btn-ver">VER HOTELES</button>
+      </div>
+      <div class="hdet-hero-img">
+        <img [src]="hotel()!.imagen" [alt]="hotel()!.nombre" />
+      </div>
+    </div>
+
+    <div class="hab-section">
+      <p class="sec-label">Tipos de habitación</p>
+      <div class="hab-grid">
+        @for (hab of hotel()!.habitaciones; track hab.id) {
+          <div class="hab-card" (click)="verHabitacion(hab.id)">
+            <div class="hab-foto">
+              <img [src]="hab.imagen" [alt]="hab.nombre" />
+            </div>
+            <span>{{ hab.nombre }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+  }
+
+  <app-bottom-nav />
+</div>

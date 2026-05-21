@@ -1,0 +1,111 @@
+.hdet-screen {
+  min-height: 100dvh;
+  background: #7B7BF5;
+  padding-bottom: 90px;
+  font-family: sans-serif;
+}
+
+.hdet-hero {
+  background: #1E2060;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 16px 20px;
+}
+
+.hdet-hero-text {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.hdet-hero-text h2 {
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hdet-hero-text p {
+  font-size: 11px;
+  color: #EE3E3E;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.btn-ver {
+  background: #fff;
+  color: #1E2060;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.hdet-hero-img {
+  width: 110px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hdet-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.hab-section { padding: 16px; }
+
+.sec-label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.hab-grid {
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  justify-content: space-around;
+}
+
+.hab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.hab-foto {
+  width: 80px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hab-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.hab-card span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1E2060;
+  text-align: center;
+}

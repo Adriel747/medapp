@@ -6,25 +6,60 @@
   </div>
 
   <div class="paq-list">
-    @for (op of opciones(); track op.id) {
-      <div class="paq-card">
-        <div class="paq-info">
-          <h3>{{ op.titulo }}</h3>
-          <div class="check-row">
-            <span
-              class="checkbox"
-              [class.checked]="op.seleccionado"
-              (click)="toggle(op.id)"
-            >{{ op.seleccionado ? '✓' : '' }}</span>
+
+    <!-- HOSPEDAJE -->
+    <div class="paq-card">
+      <div class="paq-info">
+        <h3>HOSPEDAJE</h3>
+        <div class="check-row">
+          <span class="checkbox checked">✓</span>
+          @if (paqState.hospedaje()) {
+            <span class="sel-text">
+              {{ paqState.hospedaje()!.habitacionNombre }}:
+              {{ paqState.hospedaje()!.hotelNombre }}
+              ({{ paqState.hospedaje()!.checkin }} – {{ paqState.hospedaje()!.checkout }})
+            </span>
+          } @else {
             <div class="dashed-line"></div>
-          </div>
-          <button class="btn-ver">{{ op.btnLabel }}</button>
+          }
         </div>
-        <div class="paq-img">
-          <img [src]="op.imagen" [alt]="op.titulo" />
-        </div>
+        <button class="btn-ver" (click)="irHoteles()">VER HOTELES</button>
       </div>
-    }
+      <div class="paq-img">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200&q=80" alt="Hospedaje" />
+      </div>
+    </div>
+
+    <!-- TRANSPORTE -->
+    <div class="paq-card">
+      <div class="paq-info">
+        <h3>TRANSPORTE</h3>
+        <div class="check-row">
+          <span class="checkbox checked">✓</span>
+          <div class="dashed-line"></div>
+        </div>
+        <button class="btn-ver" (click)="irTransporte()">VER OPCIONES</button>
+      </div>
+      <div class="paq-img">
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=200&q=80" alt="Transporte" />
+      </div>
+    </div>
+
+    <!-- INTÉRPRETE -->
+    <div class="paq-card">
+      <div class="paq-info">
+        <h3>INTÉRPRETE</h3>
+        <div class="check-row">
+          <span class="checkbox checked">✓</span>
+          <div class="dashed-line"></div>
+        </div>
+        <button class="btn-ver" (click)="irInterprete()">VER INTÉRPRETES</button>
+      </div>
+      <div class="paq-img">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" alt="Intérprete" />
+      </div>
+    </div>
+
   </div>
 
   <div class="paq-footer">

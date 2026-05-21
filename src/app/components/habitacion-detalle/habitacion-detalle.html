@@ -1,0 +1,72 @@
+<div class="hab-screen">
+
+  @if (habitacion()) {
+
+    <div class="hab-hero">
+      <button class="btn-back" (click)="goBack()">← Volver</button>
+      <h1>{{ habitacion()!.nombre }}</h1>
+      <div class="hab-main-img">
+        <img [src]="habitacion()!.imagen" [alt]="habitacion()!.nombre" />
+      </div>
+    </div>
+
+    <div class="hab-body">
+
+      <p class="hab-desc">{{ habitacion()!.descripcion }}</p>
+
+      <div class="hab-actions">
+        <button class="btn-elegir" (click)="elegir()" [disabled]="!checkin() || !checkout()">ELEGIR</button>
+        <button class="btn-saber">SABER MÁS</button>
+      </div>
+
+      <div class="cal-section">
+
+        @if (calendarLabel) {
+          <p class="cal-hint">{{ calendarLabel }}</p>
+        }
+
+        @if (checkin() && checkout()) {
+          <p class="cal-hint ok">
+            📅 {{ checkin()!.toLocaleDateString('es-ES',{day:'numeric',month:'short'}) }}
+            → {{ checkout()!.toLocaleDateString('es-ES',{day:'numeric',month:'short'}) }}
+          </p>
+        }
+
+        <div class="calendar-card">
+          <div class="cal-nav">
+            <button class="cal-btn" (click)="prevMonth()">‹</button>
+            <span class="cal-month">{{ monthLabel }}</span>
+            <button class="cal-btn" (click)="nextMonth()">›</button>
+          </div>
+
+          <div class="cal-days-header">
+            @for (d of DAYS; track d) { <span>{{ d }}</span> }
+          </div>
+
+          <div class="cal-grid">
+            @for (day of calendarDays(); track $index) {
+              <div
+                class="cal-day"
+                [class.checkin]="isCheckin(day)"
+                [class.checkout]="isCheckout(day)"
+                [class.in-range]="isDayInRange(day)"
+                [class.past]="isPast(day)"
+                [class.empty]="!day"
+                (click)="selectDay(day)"
+              >{{ day ?? '' }}</div>
+            }
+          </div>
+
+          <div class="cal-footer">
+            <button class="cal-act" (click)="cancelar()">CANCELAR</button>
+            <button class="cal-act primary" (click)="elegir()" [disabled]="!checkin() || !checkout()">OK</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  }
+
+  <app-bottom-nav />
+</div>

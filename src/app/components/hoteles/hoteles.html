@@ -1,0 +1,29 @@
+<div class="hot-screen">
+
+  <div class="hot-hero">
+    <div class="hot-hero-text">
+      <h1>Hi {{ user()?.name }}</h1>
+      <p>ESCOGE LA MEJOR ELECCIÓN DE HOTELES DE TODA BOLIVIA</p>
+    </div>
+    <div class="hot-hero-img">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200&q=80" alt="Hotel" />
+    </div>
+  </div>
+
+  <div class="hot-list">
+    @for (hotel of lista; track hotel.id) {
+      <div class="hot-card">
+        <div class="hot-info">
+          <h3>{{ hotel.nombre }}</h3>
+          <p>{{ hotel.descripcion }}</p>
+          <button class="btn-ver" (click)="verHotel(hotel.id)">VER HOTELES</button>
+        </div>
+        <div class="hot-foto">
+          <img [src]="hotel.imagen" [alt]="hotel.nombre" />
+        </div>
+      </div>
+    }
+  </div>
+
+  <app-bottom-nav />
+</div>
