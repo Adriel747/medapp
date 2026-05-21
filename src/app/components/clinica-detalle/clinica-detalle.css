@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.detalle-screen {
+  min-height: 100vh;
+  background: #7B72D8;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+}
+
+/* mismo hero que odontologia */
+.hero-header {
+  background: #2E2580;
+  border-radius: 0 0 28px 28px;
+  padding: 48px 20px 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  margin-bottom: 8px;
+  display: block;
+  padding: 0;
+}
+
+.hero-text { flex: 1; }
+
+.hero-text h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 42px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFE94A;
+  line-height: 1.5;
+  max-width: 200px;
+}
+
+.hero-img {
+  width: 140px;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.hero-img img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ── Clínica card ── */
+.clinica-card {
+  margin: 20px 16px 0;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.clinica-info {
+  flex: 1;
+  padding: 16px;
+}
+
+.clinica-info h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  color: #1a1a2e;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.clinica-info p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4A3FB0;
+  line-height: 1.5;
+}
+
+.clinica-foto {
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.clinica-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Tratamientos ── */
+.tratamientos-section {
+  margin: 16px 16px 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 16px;
+}
+
+.tratamientos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.trat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.trat-card:hover {
+  transform: scale(1.05);
+}
+
+.trat-foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.trat-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trat-card span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2E2580;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}

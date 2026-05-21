@@ -1,0 +1,64 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: #2E2580;
+  border-radius: 26px 26px 0 0;
+  padding: 14px 36px 28px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.22);
+  z-index: 100;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.nav-btn.active {
+  background: rgba(255,255,255,0.12);
+}
+
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #00E5BC;
+}
+
+.nav-btn span {
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+
+.nav-btn.active span {
+  transform: scale(1.15);
+}
+
+.nav-btn small {
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-btn.active small {
+  color: #00E5BC;
+}

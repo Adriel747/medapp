@@ -1,0 +1,38 @@
+<div class="home-screen">
+
+  <div class="home-header">
+    <div class="home-greet">
+      <small>Bienvenido de nuevo</small>
+      <h1>{{ user()?.name }}</h1>
+    </div>
+    <div class="user-avatar" (click)="logout()">🧑‍⚕️</div>
+  </div>
+
+  <div class="tagline-pill">
+    <span class="pulse-dot"></span>
+    <span>Tu conexión con la salud en Cochabamba</span>
+  </div>
+
+  <p class="section-label">Servicios</p>
+
+  <div class="services-grid">
+    @for (svc of services; track svc.route) {
+      <div class="svc-card" (click)="goService(svc.route)">
+        <div class="svc-icon {{ svc.color }}">{{ svc.icon }}</div>
+        <div class="svc-label">{{ svc.label }}</div>
+      </div>
+    }
+  </div>
+
+  <div class="banner">
+    <span>✈️</span>
+    <div>
+      <small>Paquete todo incluido</small>
+      <strong>Vuelo · Hotel · Clínica · Intérprete</strong>
+    </div>
+    <span>›</span>
+  </div>
+
+  <app-bottom-nav />
+
+</div>

@@ -1,0 +1,43 @@
+<div class="login-screen">
+
+  <div class="login-top">
+    <h1>WELCOME</h1>
+  </div>
+
+  <div class="illus">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <span class="illus-person">🧑‍💻</span>
+    <span class="illus-cross">✚</span>
+    <span class="illus-heart">❤️</span>
+  </div>
+
+  <div class="login-form">
+    <input
+      class="inp"
+      type="email"
+      placeholder="correo electrónico"
+      [value]="email()"
+      (input)="email.set($any($event.target).value)"
+      (keyup.enter)="onLogin()"
+    />
+    <input
+      class="inp"
+      type="password"
+      placeholder="password"
+      [value]="password()"
+      (input)="password.set($any($event.target).value)"
+      (keyup.enter)="onLogin()"
+    />
+
+    @if (errorMsg()) {
+      <p class="error-msg">{{ errorMsg() }}</p>
+    }
+
+    <button class="btn-login" [disabled]="loading()" (click)="onLogin()">
+      {{ loading() ? 'Ingresando...' : 'INGRESAR' }}
+    </button>
+  </div>
+
+</div>
